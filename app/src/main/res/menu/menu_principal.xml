@@ -7,13 +7,13 @@
     <group android:checkableBehavior="single"
         android:id="@+id/first_section">
         <!--
-        con checked true, indica que va estar seleccionado por default (enfoque)
+        con checked true, se indica el item seleccionado por default
         -->
         <item
-            android:id="@+id/nav_cliente"
+            android:id="@+id/nav_reservacion"
 
-            android:checked="true"
-            android:title="Cliente"/>
+
+            android:title="Reservar Cita"/>
         <item
             android:id="@+id/nav_cab_pedido"
 
@@ -28,9 +28,9 @@
             android:title="Producto"/>
 
         <item
-            android:id="@+id/nav_forma_pago"
-
-            android:title="Forma de Pago"/>
+            android:id="@+id/nav_tipo_pago"
+            android:checked="true"
+            android:title="Tipo de Pago"/>
     </group>
 
 

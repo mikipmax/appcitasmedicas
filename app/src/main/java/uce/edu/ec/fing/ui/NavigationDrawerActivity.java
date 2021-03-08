@@ -34,12 +34,12 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        //Elegimos el fragmento de Cliente por default al iniciar la app
+        //Elegimos el fragmento de Reservación por default al iniciar la app
         if (savedInstanceState == null) {
-           /* ActividadListaPedidos fragment = ActividadListaPedidos.newInstance();
+            ActividadTipoPago fragment = ActividadTipoPago.newInstance();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.content_main, fragment)
-                    .commit();*/
+                    .commit();
         }
     }
 
@@ -67,14 +67,14 @@ public class NavigationDrawerActivity extends AppCompatActivity
             case R.id.nav_cab_pedido:
                 //obtenerFragmento(ActividadCabecera.newInstance());
                 break;
-            case R.id.nav_cliente:
+            case R.id.nav_reservacion:
                 //obtenerFragmento(ActividadListaPedidos.newInstance());
                 break;
             case R.id.nav_det_pedido:
                 //obtenerFragmento(ActividadDetalles.newInstance());
                 break;
-            case R.id.nav_forma_pago:
-                //obtenerFragmento(ActividadFormas.newInstance());
+            case R.id.nav_tipo_pago:
+                obtenerFragmento(ActividadTipoPago.newInstance());
                 break;
             case R.id.nav_producto:
                 //obtenerFragmento(ActividadProductos.newInstance());
