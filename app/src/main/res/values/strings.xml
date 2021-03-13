@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">Citas Médicas</string>
-    <string name="navigation_drawer_open">Productos</string>
-    <string name="navigation_drawer_close">Productos</string>
 </resources>

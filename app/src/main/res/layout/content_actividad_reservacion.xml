@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+    <Spinner
+        android:id="@+id/spPaciente"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:baselineAligned="false" />
+    <Spinner
+        android:id="@+id/spMedico"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:baselineAligned="false" />
+
+    <Spinner
+        android:id="@+id/spEstadoReservacion"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:baselineAligned="false" />
+    <Spinner
+        android:id="@+id/spTipoPago"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:baselineAligned="false" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fecha"
+        android:paddingBottom="10dp">
+
+        <EditText
+
+            android:id="@+id/txtFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hora"
+        android:paddingBottom="10dp">
+
+        <EditText
+            android:id="@+id/txtHora"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="time" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción"
+        android:paddingBottom="10dp">
+
+        <EditText
+            android:id="@+id/txtDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <Button
+        android:id="@+id/id_btnCrearReservacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Guardar" />
+    <Button
+        android:id="@+id/id_btnEliminarReservacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Eliminar"
+        android:visibility="gone" />
+    <Button
+        android:id="@+id/id_btnCancelarReservacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Cancelar"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:text="Reservaciones"
+        android:textSize="30dp" />
+
+    <ListView
+        android:id="@+id/listaReservacion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

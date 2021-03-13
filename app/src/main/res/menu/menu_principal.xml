@@ -2,37 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-
-    <group android:checkableBehavior="single"
-        android:id="@+id/first_section">
-        <!--
-        con checked true, se indica el item seleccionado por default
-        -->
+    <group
+        android:id="@+id/first_section"
+        android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_reservacion"
-
-
-            android:title="Reservar Cita"/>
+            android:id="@+id/navReservacion"
+            android:title="Reservación Mëdica" />
         <item
-            android:id="@+id/nav_cab_pedido"
-
-            android:title="Cabecera Pedido"/>
+            android:id="@+id/navMedico"
+            android:title="Mëdico" />
         <item
-            android:id="@+id/nav_det_pedido"
-
-            android:title="Detalle Pedido"/>
+            android:id="@+id/navPaciente"
+            android:title="Paciente" />
         <item
-            android:id="@+id/nav_producto"
-
-            android:title="Producto"/>
-
+            android:id="@+id/navEstadoReserva"
+            android:title="Estado de Reservación" />
+        <item
+            android:id="@+id/navEspecialidad"
+            android:checked="true"
+            android:title="Especialidad" />
         <item
             android:id="@+id/nav_tipo_pago"
-            android:checked="true"
-            android:title="Tipo de Pago"/>
-    </group>
 
+            android:title="Tipo de Pago" />
+    </group>
 
 
 </menu>

@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CheckBox;
+
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -17,62 +17,58 @@ import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-
 import uce.edu.ec.fing.R;
-import uce.edu.ec.fing.dto.TipoPago;
-import uce.edu.ec.fing.proxies.ProducerTipoPagoProxy;
+
+import uce.edu.ec.fing.dto.EstadoReserva;
+import uce.edu.ec.fing.proxies.ProducerEstadoReservaProxy;
 import uce.edu.ec.fing.utils.Util;
 
 
-public class ActividadTipoPago extends Fragment {
+public class ActividadEstadoReserva extends Fragment {
 
 
-    public static ActividadTipoPago newInstance() {
-        ActividadTipoPago fragmento = new ActividadTipoPago();
+    public static ActividadEstadoReserva newInstance() {
+        ActividadEstadoReserva fragmento = new ActividadEstadoReserva();
         return fragmento;
     }
 
-    public ActividadTipoPago() {
+    public ActividadEstadoReserva() {
 
     }
 
     //Creacción de variables de instancia de clase
 
 
-    EditText tipoPago; //Caja de texto
-    ListView listaTipoPago; //componente android para mostrar una lista de cosas
-    TipoPago tipoPagoSeleccionado; // objeto FormaPago que esta enlazado a bd
+    EditText nombreEstadoReserva; //Caja de texto
+    ListView lista; //componente android para mostrar una lista de cosas
+    EstadoReserva estadoReservaSeleccionada; // objeto FormaPago que esta enlazado a bd
 
 
     Button crear;
     Button cancelar;
-    CheckBox estado;
+
 
     //Se ejecuta cuando inicia la app
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_actividad_tipo_pago, container, false);
+        View view = inflater.inflate(R.layout.content_actividad_estado_reserva, container, false);
 
-        tipoPago = (EditText) view.findViewById(R.id.txtTipoPago);
-        listaTipoPago = (ListView) view.findViewById(R.id.listaTipoPago);
+        nombreEstadoReserva = (EditText) view.findViewById(R.id.txtEstadoReserva);
 
-        estado = (CheckBox) view.findViewById(R.id.id_checkTipoPago); //enlazamos al check del estado
+        lista = (ListView) view.findViewById(R.id.listaEstadoReserva);
 
-
-        crear = (Button) view.findViewById(R.id.id_btnCrearTipo);
-        cancelar = (Button) view.findViewById(R.id.id_btnCancelar);
+        crear = (Button) view.findViewById(R.id.id_btnCrearEstadoReserva);
+        cancelar = (Button) view.findViewById(R.id.id_btnCancelarEstadoReserva);
         listar(); //llamamos método para listar formas de pago, apenas inicie la app
 
         //Este evento nos permite obtener un elemento de la lista que el usuario seleccione en la vista
-        listaTipoPago.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                tipoPagoSeleccionado = (TipoPago) adapterView.getItemAtPosition(i); //guardamos el objeto seleccionado
-                estado.setVisibility(View.VISIBLE); //hacemos visible el check
-                estado.setChecked(tipoPagoSeleccionado.tipaVigente);
-                tipoPago.setText(tipoPagoSeleccionado.tipaNombre); // le enviamos a nuestra caja de texto lo que selecciono el usuario
+                estadoReservaSeleccionada = (EstadoReserva) adapterView.getItemAtPosition(i); //guardamos el objeto seleccionado
+                nombreEstadoReserva.setText(estadoReservaSeleccionada.esreEstado); // le enviamos a nuestra caja de texto lo que selecciono el usuario
                 crear.setText(Util.SACTUALIZAR);
                 cancelar.setVisibility(View.VISIBLE);
             }
@@ -82,7 +78,7 @@ public class ActividadTipoPago extends Fragment {
                 insertar();
             if (crear.getText().toString().equals(Util.SACTUALIZAR)) {
                 actualizar();
-                estado.setVisibility(View.INVISIBLE); //perdemos el estado del check
+
                 cancelar.setVisibility(View.INVISIBLE);
                 crear.setText(Util.SCREAR); //indicamos al usuario que ha vuelto al modo insertar
             }
@@ -93,7 +89,7 @@ public class ActividadTipoPago extends Fragment {
 
             crear.setText(Util.SCREAR);
             cancelar.setVisibility(View.INVISIBLE);
-            estado.setVisibility(View.INVISIBLE); //perdemos el estado del check
+
             limpiarTexto();
         });
 
@@ -103,20 +99,22 @@ public class ActividadTipoPago extends Fragment {
 
     //Método que lista los tipos de pago
     public void listar() {
-        Call<List<TipoPago>> call = ProducerTipoPagoProxy.producer().listarTiposPago();
-        Util.ejecutarLista(call, getActivity(), listaTipoPago);
+        Call<List<EstadoReserva>> call = ProducerEstadoReservaProxy.producer().listar();
+        Util.ejecutarLista(call, getActivity(), lista);
     }
 
     //para limpiar la caja de texto despues de cada actualización o inserción
     public void limpiarTexto() {
-        tipoPago.setText("");
+        nombreEstadoReserva.setText("");
+
     }
 
     //Método para insertar registros en la tabla
     public void insertar() {
-        String tipoPago = this.tipoPago.getText().toString(); //obtenemos lo que el usuario digita en la caja de texto
-        if (!tipoPago.isEmpty()) { //verificamos que no este vacio la caja de texto
-            Call<ResponseBody> call = ProducerTipoPagoProxy.producer().insertar(new TipoPago(tipoPago, true));
+        String estadoReserva = this.nombreEstadoReserva.getText().toString(); //obtenemos lo que el usuario digita en la caja de texto
+
+        if (!estadoReserva.isEmpty()) { //verificamos que no este vacio la caja de texto
+            Call<ResponseBody> call = ProducerEstadoReservaProxy.producer().insertar(new EstadoReserva(estadoReserva));
             Util.ejecutarCud(call, getActivity(), Util.SINSERTADO);
             limpiarTexto();
             refrescarFragmento();
@@ -128,12 +126,12 @@ public class ActividadTipoPago extends Fragment {
 
     //Método para actualizar registros en la tabla
     public void actualizar() {
-        String txtTipoPago = this.tipoPago.getText().toString(); //obtenemos lo que el usuario digite
-        boolean estadoAux = estado.isChecked();
+        String txtEstadoReserva = this.nombreEstadoReserva.getText().toString(); //obtenemos lo que el usuario digite
 
-        if (!txtTipoPago.isEmpty() && tipoPagoSeleccionado.tipaId != 0) { //validamos que el texto no este vacio y que si se trata de una actualización en base al id que no sea nulo
-            TipoPago tipoPago = new TipoPago(tipoPagoSeleccionado.tipaId, txtTipoPago, estadoAux); //almacenamos los cambios de la forma de pago con su respectivo id
-            Call<ResponseBody> call = ProducerTipoPagoProxy.producer().actualizar(tipoPago);
+
+        if (!txtEstadoReserva.isEmpty() && estadoReservaSeleccionada.esreId != 0) { //validamos que el texto no este vacio y que si se trata de una actualización en base al id que no sea nulo
+            EstadoReserva estadoReserva = new EstadoReserva(estadoReservaSeleccionada.esreId, txtEstadoReserva); //almacenamos los cambios de la forma de pago con su respectivo id
+            Call<ResponseBody> call = ProducerEstadoReservaProxy.producer().actualizar(estadoReserva);
             Util.ejecutarCud(call, getActivity(), Util.SACTUALIZADO);
             limpiarTexto();
             refrescarFragmento();

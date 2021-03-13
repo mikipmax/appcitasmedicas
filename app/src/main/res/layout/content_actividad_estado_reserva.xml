@@ -8,38 +8,33 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tipo de Pago"
+        android:hint="Estado de la Reservación"
         android:paddingBottom="10dp">
 
         <EditText
-            android:id="@+id/txtTipoPago"
+            android:id="@+id/txtEstadoReserva"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
-    <CheckBox
-        android:id="@+id/id_checkTipoPago"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:text="Vigencia"
-        android:visibility="invisible" />
 
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+
+
+    android:layout_width="match_parent"android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/id_btnCrearTipo"
+        android:id="@+id/id_btnCrearEstadoReserva"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:text="Guardar" />
 
     <Button
-        android:id="@+id/id_btnCancelar"
+        android:id="@+id/id_btnCancelarEstadoReserva"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -52,11 +47,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
-        android:text="Tipos de Pago"
+        android:text="Estados de Reservación"
         android:textSize="30dp" />
 
     <ListView
-        android:id="@+id/listaTipoPago"
+        android:id="@+id/listaEstadoReserva"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

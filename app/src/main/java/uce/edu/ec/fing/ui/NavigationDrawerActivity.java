@@ -1,7 +1,6 @@
 package uce.edu.ec.fing.ui;
 
 import android.os.Bundle;
-
 import android.view.MenuItem;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -28,7 +27,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, 0, 0);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -64,23 +63,25 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
 
         switch (item.getItemId()) {
-            case R.id.nav_cab_pedido:
-                //obtenerFragmento(ActividadCabecera.newInstance());
+            case R.id.navMedico:
+                obtenerFragmento(ActividadMedico.newInstance());
                 break;
-            case R.id.nav_reservacion:
-                //obtenerFragmento(ActividadListaPedidos.newInstance());
+            case R.id.navPaciente:
+                obtenerFragmento(ActividadPaciente.newInstance());
                 break;
-            case R.id.nav_det_pedido:
-                //obtenerFragmento(ActividadDetalles.newInstance());
+            case R.id.navReservacion:
+                obtenerFragmento(ActividadReservacion.newInstance());
+                break;
+            case R.id.navEstadoReserva:
+                obtenerFragmento(ActividadEstadoReserva.newInstance());
                 break;
             case R.id.nav_tipo_pago:
                 obtenerFragmento(ActividadTipoPago.newInstance());
                 break;
-            case R.id.nav_producto:
-                //obtenerFragmento(ActividadProductos.newInstance());
+            case R.id.navEspecialidad:
+                obtenerFragmento(ActividadEspecialidad.newInstance());
                 break;
         }
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

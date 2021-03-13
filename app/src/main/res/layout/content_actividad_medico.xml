@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <Spinner
+        android:id="@+id/spEspecialidad"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:baselineAligned="false" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombres"
+        android:paddingBottom="10dp">
+
+        <EditText
+
+            android:id="@+id/txtNombresMedico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Apellidos"
+        android:paddingBottom="10dp">
+
+        <EditText
+            android:id="@+id/txtApellidosMedico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Teléfono"
+        android:paddingBottom="10dp">
+
+        <EditText
+            android:id="@+id/txtTelefonoMedicp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cédula"
+        android:paddingBottom="10dp">
+
+        <EditText
+            android:id="@+id/txtCedulaMedico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:paddingBottom="10dp">
+
+        <EditText
+            android:id="@+id/txtEmailMedico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <CheckBox
+        android:id="@+id/id_checkMedico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:text="Vigencia"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/id_btnCrearMedico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Guardar" />
+
+    <Button
+        android:id="@+id/id_btnCancelarMedico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Cancelar"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:text="Médicos"
+        android:textSize="30dp" />
+
+    <ListView
+        android:id="@+id/listaMedico"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

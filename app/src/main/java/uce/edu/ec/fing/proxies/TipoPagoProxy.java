@@ -2,6 +2,7 @@ package uce.edu.ec.fing.proxies;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -14,12 +15,12 @@ public interface TipoPagoProxy {
     @GET("tipos-pago")
     Call<List<TipoPago>> listarTiposPago();
 
-    @GET("{id}")
-    Call<TipoPago> buscarTiposPago(@Path("id") int id);
+    @GET("tipos-pago-vigentes")
+    Call<List<TipoPago>> listarVigentes();
 
     @POST("insertar/")
-    Call<TipoPago> insertar(@Body TipoPago tipoPago);
+    Call<ResponseBody> insertar(@Body TipoPago tipoPago);
 
     @PUT("actualizar")
-    Call<TipoPago> actualizar( @Body TipoPago tipoPago);
+    Call<ResponseBody> actualizar( @Body TipoPago tipoPago);
 }

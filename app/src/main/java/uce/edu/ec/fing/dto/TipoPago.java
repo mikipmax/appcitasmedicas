@@ -12,6 +12,12 @@ public class TipoPago {
         this.tipaVigente = b;
     }
 
+    public TipoPago(int tipaId, String tipaNombre, boolean tipaVigente) {
+        this.tipaId = tipaId;
+        this.tipaNombre = tipaNombre;
+        this.tipaVigente = tipaVigente;
+    }
+
     public TipoPago() {
 
     }
