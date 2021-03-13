@@ -16,10 +16,13 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+import br.com.sapereaude.maskedEditText.MaskedEditText;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import uce.edu.ec.fing.R;
@@ -49,8 +52,8 @@ public class ActividadReservacion extends Fragment {
     }
 
     //Creacción de variables de instancia de clase
-    EditText fechaReservacion; //Caja de texto
-    EditText horaReservacion;
+    MaskedEditText fechaReservacion; //Caja de texto
+    MaskedEditText horaReservacion;
     EditText descripcion;
 
     Spinner medicos;
@@ -68,15 +71,14 @@ public class ActividadReservacion extends Fragment {
     Button crear;
     Button cancelar;
     Button eliminar;
-
     //Se ejecuta cuando inicia la app
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_actividad_reservacion, container, false);
 
-        fechaReservacion = (EditText) view.findViewById(R.id.txtFecha);
-        horaReservacion = (EditText) view.findViewById(R.id.txtHora);
+        fechaReservacion = (MaskedEditText) view.findViewById(R.id.txtFecha);
+        horaReservacion = (MaskedEditText) view.findViewById(R.id.txtHora);
         descripcion = (EditText) view.findViewById(R.id.txtDescripcion);
 
         lista = (ListView) view.findViewById(R.id.listaReservacion);

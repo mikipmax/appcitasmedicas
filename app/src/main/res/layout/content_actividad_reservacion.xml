@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <Spinner
         android:id="@+id/spPaciente"
         android:layout_width="match_parent"
@@ -29,31 +30,34 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Fecha"
+        android:hint="Fecha (aaaa-mm-dd)"
         android:paddingBottom="10dp">
+        <br.com.sapereaude.maskedEditText.MaskedEditText
 
-        <EditText
-
-            android:id="@+id/txtFecha"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date" />
+            android:layout_height="match_parent"
+            android:id="@+id/txtFecha"
+            android:inputType="date"
+            app:mask="####-##-##"
+            app:allowed_chars="1234567890"
+
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Hora"
+        android:hint="Hora (hh:mm)"
         android:paddingBottom="10dp">
+        <br.com.sapereaude.maskedEditText.MaskedEditText
 
-        <EditText
-            android:id="@+id/txtHora"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="time" />
+            android:layout_height="match_parent"
+            android:id="@+id/txtHora"
+            android:inputType="time"
+            app:mask="##:##"
+            app:allowed_chars="1234567890"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -106,5 +110,6 @@
         android:id="@+id/listaReservacion"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 
 </LinearLayout>

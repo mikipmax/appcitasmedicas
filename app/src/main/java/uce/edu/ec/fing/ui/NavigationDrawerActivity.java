@@ -35,7 +35,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         //Elegimos el fragmento de Reservación por default al iniciar la app
         if (savedInstanceState == null) {
-            ActividadTipoPago fragment = ActividadTipoPago.newInstance();
+            ActividadMedico fragment = ActividadMedico.newInstance();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.content_main, fragment)
                     .commit();

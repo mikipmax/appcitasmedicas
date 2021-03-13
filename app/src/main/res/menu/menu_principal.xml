@@ -10,6 +10,7 @@
             android:title="Reservación Mëdica" />
         <item
             android:id="@+id/navMedico"
+            android:checked="true"
             android:title="Mëdico" />
         <item
             android:id="@+id/navPaciente"
@@ -19,7 +20,7 @@
             android:title="Estado de Reservación" />
         <item
             android:id="@+id/navEspecialidad"
-            android:checked="true"
+
             android:title="Especialidad" />
         <item
             android:id="@+id/nav_tipo_pago"
